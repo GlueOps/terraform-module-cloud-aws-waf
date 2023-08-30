@@ -9,6 +9,8 @@ module "cdn" {
   name                   = each.key
   price_class            = "PriceClass_100"
   forward_headers        = ["*"]
+  forward_query_string   = true
+  forward_cookies        = "all"
   default_ttl            = 0
   logging_enabled        = false
   viewer_protocol_policy = "allow-all"
