@@ -1,11 +1,6 @@
-locals {
-
-  web_acl_name = "primary"
-}
-
 resource "aws_wafv2_web_acl" "primary" {
   description   = "Managed by Terraform"
-  name          = local.web_acl_name
+  name          = "primary"
   scope         = "CLOUDFRONT"
   token_domains = []
 
@@ -118,7 +113,7 @@ resource "aws_wafv2_web_acl" "primary" {
 
   visibility_config {
     cloudwatch_metrics_enabled = true
-    metric_name                = local.web_acl_name
+    metric_name                = "primary"
     sampled_requests_enabled   = true
   }
 }
