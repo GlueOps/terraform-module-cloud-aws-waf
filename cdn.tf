@@ -1,10 +1,9 @@
-
 module "cdn" {
-  for_each               = local.websites
+  for_each               = var.websites
   source                 = "git::https://github.com/cloudposse/terraform-aws-cloudfront-cdn?ref=1.0.0"
   acm_certificate_arn    = data.aws_acm_certificate.amazon_issued[each.key].arn
-  aliases                = each.value.cdn_aliases
-  origin_domain_name     = "venkata-demo.apps.nonprod.antoniostacos.onglueops.com"
+  aliases                = each.value.additional_domains
+  origin_domain_name     = var.origin_domain_name
   dns_aliases_enabled    = false
   name                   = each.key
   price_class            = "PriceClass_100"
