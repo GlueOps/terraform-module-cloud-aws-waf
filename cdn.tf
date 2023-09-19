@@ -13,5 +13,5 @@ module "cdn" {
   default_ttl            = 0
   logging_enabled        = false
   viewer_protocol_policy = "allow-all"
-  web_acl_id             = aws_wafv2_web_acl.primary.arn
+  web_acl_id             = var.waf_web_acl_arn
 }

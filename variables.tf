@@ -11,3 +11,9 @@ variable "origin_domain_name" {
   description = "Domain to the origin server"
   type        = string
 }
+
+
+variable "waf_web_acl_arn" {
+  description = "ARN for WAF WEB ACL"
+  type        = string
+}
